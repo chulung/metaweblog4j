@@ -49,5 +49,5 @@ spring bean 配置
 
 The MIT License.
 
-Copyright (c) 2016 Chulung
+Copyright (c) 2015-2016 chulung
 
