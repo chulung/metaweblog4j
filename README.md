@@ -15,7 +15,7 @@
 	cnblog.password=密码
 	cnblog.serverurl=http://rpc.cnblogs.com/metaweblog/chulung
 	
-serverurl格式为`http://rpc.cnblogs.com/metaweblog/博客名`,如上是我的
+serverurl格式为 http://rpc.cnblogs.com/metaweblog/博客名 ,如上是我的
 
 spring bean 配置
 
