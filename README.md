@@ -4,7 +4,7 @@
 ##关于
 这是一个利用MetaWeblog接口的博客推送工具
 
-基于xmlrpc，用于从[chulung's craft](http://blog.chulung.com)向cnblog等博客网站自动同步文章。
+基于xmlrpc，用于从[chulung's craft](https://chulung.com)向cnblog等博客网站自动同步文章。
 
 目前只支持cnblog 见 [http://www.cnblogs.com/chulung/](http://www.cnblogs.com/chulung/)，csdn的接口不兼容,有时间再重构。
 
@@ -15,7 +15,9 @@
 	cnblog.password=密码
 	cnblog.serverurl=http://rpc.cnblogs.com/metaweblog/chulung
 	
+
 serverurl格式为 http://rpc.cnblogs.com/metaweblog/博客名 ,如上是我的
+
 
 spring bean 配置
 
