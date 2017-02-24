@@ -49,9 +49,6 @@ public final class Post extends Struct<Post>{
 	private String wp_slug;
 	public Post() {
 	}
-	public Post(Map<String, Object> params) {
-		super(params);
-	}
 	public String[] getCategories() {
 		return categories;
 	}

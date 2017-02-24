@@ -4,11 +4,12 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import com.chulung.metaclblog.util.ReflectUtil;
 import org.apache.xmlrpc.XmlRpcException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chulung.metackblog.config.ConfigInfo;
+import com.chulung.metaclblog.config.ConfigInfo;
 import com.chulung.metaclblog.struct.Post;
 import com.chulung.metaclblog.xmlrpc.XmlRpcExecute;
 
@@ -37,8 +38,8 @@ public class MetaWeblog {
 			throw new IllegalArgumentException(
 					"blogid,post,post.Title,post.DateCreated,post.Description cannot be null!");
 		}
-		Object[] pParams = { blogid, configInfo.getUserName(), configInfo.getPassword(), post.toParams(), publish };
-		return (String) this.xmlRpcExecute.execute(configInfo.getServerUrl(), "metaWeblog.newPost", pParams);
+		Object[] pParams = { blogid, configInfo.getUserName(), configInfo.getPassword(), ReflectUtil.toXMLRPCParams(post), publish };
+		return (String) this.xmlRpcExecute.execute(configInfo.getServerUrl(), "metaWeblog.newPost" , pParams);
 	}
 
 	/**
@@ -54,7 +55,7 @@ public class MetaWeblog {
 		if (post == null || post.getPostid() == null) {
 			throw new IllegalArgumentException("post or Postid cannot be null!");
 		}
-		Object[] pParams = { post.getPostid(), configInfo.getUserName(), configInfo.getPassword(), post.toParams(),
+		Object[] pParams = { post.getPostid(), configInfo.getUserName(), configInfo.getPassword(), ReflectUtil.toXMLRPCParams(post),
 				true };
 		return (boolean) this.xmlRpcExecute.execute(configInfo.getServerUrl(), "metaWeblog.editPost", pParams);
 	}
@@ -72,7 +73,7 @@ public class MetaWeblog {
 			}
 			throw e;
 		}
-		return result == null ? null : new Post((Map<String, Object>) result);
+		return result == null ? null : ReflectUtil.reflectFields(new Post(),(Map<String, Object>) result);
 	}
 
 	public boolean deletePost(String postid) throws XmlRpcException {

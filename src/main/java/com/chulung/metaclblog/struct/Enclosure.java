@@ -10,9 +10,6 @@ public final class Enclosure extends Struct<Enclosure>{
 	private String url;
 	public Enclosure() {
 	}
-	public Enclosure(Map<String, Object> Params) {
-		super(Params);
-	}
 	public Integer getLength() {
 		return length;
 	}

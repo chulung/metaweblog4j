@@ -14,9 +14,6 @@ public final class Source extends Struct<Source> {
 	
 	public Source() {
 	}
-	public Source(Map<String, Object> Params) {
-		super(Params);
-	}
 
 	public String getName() {
 		return name;

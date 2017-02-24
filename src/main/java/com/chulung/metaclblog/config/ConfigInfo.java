@@ -1,4 +1,4 @@
-package com.chulung.metackblog.config;
+package com.chulung.metaclblog.config;
 
 /**
  * 服务器配置
