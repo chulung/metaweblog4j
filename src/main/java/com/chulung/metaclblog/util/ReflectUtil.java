@@ -42,7 +42,7 @@ public class ReflectUtil {
                     }
                 }
             } catch (Exception e) {
-                LOGGER.error("\nfield={}\nvalue={}\nvalueType={}\nerror={}",field,value,((Object[]) value)[0].getClass(),e);
+                LOGGER.error("\nfield={}\nvalue={}\nvalueType={}\nerror={}",field,value, value.getClass(),e);
             }
         }
         return obj;
