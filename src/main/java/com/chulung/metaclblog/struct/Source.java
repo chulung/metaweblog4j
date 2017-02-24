@@ -34,4 +34,11 @@ public final class Source extends Struct<Source> {
 		this.url = url;
 	}
 
+	@Override
+	public String toString() {
+		return "Source{" +
+				"name='" + name + '\'' +
+				", url='" + url + '\'' +
+				'}';
+	}
 }

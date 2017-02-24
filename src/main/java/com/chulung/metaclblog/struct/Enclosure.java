@@ -31,5 +31,13 @@ public final class Enclosure extends Struct<Enclosure>{
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Enclosure{" +
+				"length=" + length +
+				", type='" + type + '\'' +
+				", url='" + url + '\'' +
+				'}';
+	}
 }

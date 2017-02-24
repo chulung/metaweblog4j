@@ -1,5 +1,6 @@
 package com.chulung.metaclblog.struct;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 
@@ -41,6 +42,9 @@ public final class Post extends Struct<Post>{
 	private Integer mt_convert_breaks;
 	private String mt_text_more;
 	private String mt_excerpt;
+	/**
+	 * cnblogs 表示标签 ,分割 如 高并发,架构
+	 */
 	private String mt_keywords;
 	private String wp_slug;
 	public Post() {
@@ -184,4 +188,26 @@ public final class Post extends Struct<Post>{
 		this.title = title;
 	}
 
+	@Override
+	public String toString() {
+		return "Post{" +
+				"dateCreated=" + dateCreated +
+				", description='" + description + '\'' +
+				", title='" + title + '\'' +
+				", categories=" + Arrays.toString(categories) +
+				", enclosure=" + enclosure +
+				", link='" + link + '\'' +
+				", permalink='" + permalink + '\'' +
+				", postid='" + postid + '\'' +
+				", source=" + source +
+				", userid='" + userid + '\'' +
+				", mt_allow_comments=" + mt_allow_comments +
+				", mt_allow_pings=" + mt_allow_pings +
+				", mt_convert_breaks=" + mt_convert_breaks +
+				", mt_text_more='" + mt_text_more + '\'' +
+				", mt_excerpt='" + mt_excerpt + '\'' +
+				", mt_keywords='" + mt_keywords + '\'' +
+				", wp_slug='" + wp_slug + '\'' +
+				'}';
+	}
 }
