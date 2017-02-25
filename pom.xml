@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.chulung</groupId>
     <artifactId>metaclblog</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>metackblog</name>
     <properties>
         <spring.version>4.2.3.RELEASE</spring.version>

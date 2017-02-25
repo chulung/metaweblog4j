@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 反射进行数据转化工具
  * Created by chulung on 2017/2/24.
  */
 public class ReflectUtil {
@@ -28,7 +29,7 @@ public class ReflectUtil {
                         field.set(obj, value.toString());
                     } else if (field.getType().getSuperclass() == Struct.class) {
                         Object struct = field.getType().getConstructor().newInstance();
-                        reflectFields(struct,(Map)value);
+                        reflectFields(struct,(Map<String, Object>)value);
                         field.set(obj, struct);
                     }else if (value.getClass()==Object[].class){
                         Object[] arr=(Object[])value;
@@ -53,19 +54,19 @@ public class ReflectUtil {
      * 将Struct转化为MetaWeblog的Params map 默认直接反射所有字段名和值生成map 注意 字段类型只支持Struct
      * String String数组，基本数据类型及其包装类
      *
-     * @return
+     * @return map
      */
-    public static Map<String, Object> toXMLRPCParams(Struct struct) {
+    public static Map<String, Object> toXMLRPCParams(Struct<com.chulung.metaclblog.struct.Post> struct) {
         Map<String, Object> map = new HashMap<String, Object>();
         Field[] fields = struct.getClass().getDeclaredFields();
         for (Field field : fields) {
             try {
-                // 设置访问权限，直接反射获取字段
+                // &#x8bbe;&#x7f6e;&#x8bbf;&#x95ee;&#x6743;&#x9650;&#xff0c;&#x76f4;&#x63a5;&#x53cd;&#x5c04;&#x83b7;&#x53d6;&#x5b57;&#x6bb5;
                 field.setAccessible(true);
                 Object fieldValue = field.get(struct);
                 // 如果字段为结构体，为null则设为空map，不为null则调用其toParams方法
                 if (field.getType().getSuperclass() == Struct.class) {
-                    fieldValue = fieldValue == null ? new HashMap<>() : toXMLRPCParams((Struct)fieldValue);
+                    fieldValue = fieldValue == null ? new HashMap<>() : toXMLRPCParams((Struct<com.chulung.metaclblog.struct.Post>) fieldValue);
                 } else if (field.getType().isArray()) {
                     // 字符串数组处理
                     fieldValue = fieldValue == null ? new String[]{} : (String[]) fieldValue;

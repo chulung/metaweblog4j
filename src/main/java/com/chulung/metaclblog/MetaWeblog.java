@@ -56,7 +56,7 @@ public class MetaWeblog {
 			throw new IllegalArgumentException("post or Postid cannot be null!");
 		}
 		Object[] pParams = { post.getPostid(), configInfo.getUserName(), configInfo.getPassword(), ReflectUtil.toXMLRPCParams(post),
-				true };
+				publish };
 		return (boolean) this.xmlRpcExecute.execute(configInfo.getServerUrl(), "metaWeblog.editPost", pParams);
 	}
 
