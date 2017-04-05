@@ -1,14 +1,20 @@
-#MetaCLblog
+# MetaCLblog
 
 
-##关于
+## 关于
+
 这是一个利用MetaWeblog接口的博客推送工具
 
-基于xmlrpc，用于从[chulung's craft](https://chulung.com)向cnblog等博客网站自动同步文章。
+基于xmlrpc，用于从[chulung.com](https://chulung.com)向cnblog等博客网站自动同步文章。
 
-目前只支持cnblog 见 [http://www.cnblogs.com/chulung/](http://www.cnblogs.com/chulung/)，csdn的接口不兼容,有时间再重构。
 
-##使用
+目前支持cnblog&oschina 
+
+[https://my.oschina.net/chulung](https://my.oschina.net/chulung)
+
+[http://www.cnblogs.com/chulung/](http://www.cnblogs.com/chulung/)
+
+## 使用
 新建metackblog.properties文件 内容如下
 
 	cnblog.username=登录名
